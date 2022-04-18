@@ -1,9 +1,22 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Container } from 'react-bootstrap'
 import { Wrapper } from './styles/AboutMe.styled'
 import myPhoto from '../images/myPhoto.jpg'
+import Loader from './Loader'
 
 const AboutMe = () => {
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    if (loading) {
+      setTimeout(() => {
+        setLoading(false)
+      }, 5000)
+    }
+  }, [loading])
+
+  if (loading) return <Loader />
+
   return (
     <Container>
       <Wrapper>

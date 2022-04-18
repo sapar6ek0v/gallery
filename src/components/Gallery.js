@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { getPhotos } from '../redux/actionCreators/galleryCreators'
@@ -11,7 +11,8 @@ import { API_KEY, URL_BASE } from '../constants/constants'
 
 const Gallery = () => {
   const dispatch = useDispatch()
-  const gallery = useSelector((s) => s.gallery)
+  const { photos } = useSelector((s) => s.gallery)
+  const [loading, setLoading] = useState(true)
   const url = `${URL_BASE}/?key=${API_KEY}&q=space&image_type=photo&pretty=true&category=nature`
 
   useEffect(() => {
@@ -20,13 +21,21 @@ const Gallery = () => {
       .catch((e) => console.log(e))
   }, [])
 
-  if (gallery.isLoading) return <Loader />
+  useEffect(() => {
+    if (loading) {
+      setTimeout(() => {
+        setLoading(false)
+      }, 5000)
+    }
+  }, [loading])
+
+  if (loading) return <Loader />
 
   return (
     <Wrapper>
       <Container>
         <Row sm={2} md={3} lg={4} xxl={6}>
-          {gallery.photos.map((photo) => (
+          {photos.map((photo) => (
             <Col key={photo.id}>
               <Link to={`/picture_details/${photo.id}`} className="card-pos">
                 <div className="card">
