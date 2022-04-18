@@ -66,4 +66,23 @@ export const Wrapper = styled.div`
       }
     }
   }
+
+  @media (min-width: 320px) {
+    .burger-menu {
+      width: 50%;
+      overflow: auto;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .burger-menu {
+      width: 35%;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .burger-menu {
+      width: 25%;
+    }
+  }
 `

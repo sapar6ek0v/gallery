@@ -110,6 +110,44 @@ export const Wrapper = styled.div`
       margin-bottom: 0;
     }
   }
+
+  @media (min-width: 480px) {
+    padding: 90px 0;
+    .card {
+      &_btn {
+        top: 104px;
+        left: 18px;
+      }
+      &_details {
+        width: 400px;
+      }
+    }
+  }
+
+  @media (min-width: 576px) {
+    padding: 90px 0;
+    .card {
+      &_btn {
+        top: 104px;
+        left: 48px;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    padding: 70px 0;
+
+    .card {
+      &_btn {
+        top: 104px;
+        left: 80px;
+      }
+
+      &_details {
+        width: 700px;
+      }
+    }
+  }
 `
 
 export const Button = styled.button`

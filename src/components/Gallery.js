@@ -34,9 +34,9 @@ const Gallery = () => {
   return (
     <Wrapper>
       <Container>
-        <Row sm={2} md={3} lg={4} xxl={6}>
+        <Row>
           {photos.map((photo) => (
-            <Col key={photo.id}>
+            <Col key={photo.id} sm={6} md={4} lg={3}>
               <Link to={`/picture_details/${photo.id}`} className="card-pos">
                 <div className="card">
                   <img src={photo.webformatURL} alt="photo" />
