@@ -22,7 +22,10 @@ const BurgerMenu = ({ onShow }) => {
         <hr />
         <img src={myPhoto} alt="my-photo" className="burger-menu_img" />
         <h4>Eldiiar</h4>
-        <a href="/" className="burger-menu_link">
+        <a
+          href="mailto:eldiiarsaparbekov03@gmail.com"
+          className="burger-menu_link"
+        >
           <SiGmail />
           <span>eldiiarsaparbekov03@gmail.com</span>
         </a>
