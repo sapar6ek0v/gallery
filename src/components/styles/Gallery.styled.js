@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   background: white;
   .card-pos {
     position: relative;
+    display: block;
   }
 
   .card {

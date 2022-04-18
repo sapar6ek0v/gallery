@@ -6,12 +6,13 @@ import { getPhotos } from '../redux/actionCreators/galleryCreators'
 import { Wrapper } from './styles/Gallery.styled'
 import { AiOutlineArrowRight } from 'react-icons/ai'
 import Loader from './Loader'
+import { Link } from 'react-router-dom'
+import { API_KEY, URL_BASE } from '../constants/constants'
 
 const Gallery = () => {
   const dispatch = useDispatch()
   const gallery = useSelector((s) => s.gallery)
-  const url =
-    'https://pixabay.com/api/?key=26795695-6040cb76d1aaf63088d84d279&q=space&image_type=photo&pretty=true&category=nature'
+  const url = `${URL_BASE}/?key=${API_KEY}&q=space&image_type=photo&pretty=true&category=nature`
 
   useEffect(() => {
     axios(url)
@@ -27,7 +28,7 @@ const Gallery = () => {
         <Row sm={2} md={3} lg={4} xxl={6}>
           {gallery.photos.map((photo) => (
             <Col key={photo.id}>
-              <div className="card-pos">
+              <Link to={`/picture_details/${photo.id}`} className="card-pos">
                 <div className="card">
                   <img src={photo.webformatURL} alt="photo" />
                 </div>
@@ -35,7 +36,7 @@ const Gallery = () => {
                   Подробнее
                   <AiOutlineArrowRight />
                 </button>
-              </div>
+              </Link>
             </Col>
           ))}
         </Row>

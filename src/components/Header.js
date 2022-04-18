@@ -5,6 +5,7 @@ import { GiHamburgerMenu } from 'react-icons/gi'
 import myPhoto from '../images/myPhoto.jpg'
 import { CSSTransition } from 'react-transition-group'
 import BurgerMenu from './BurgerMenu'
+import { Button } from './styles/PictureDetails.styled'
 
 const Header = () => {
   const [showBurgerMenu, setShowBurgerMenu] = useState(false)
@@ -14,9 +15,12 @@ const Header = () => {
       <Wrapper>
         <Container>
           <div className="header">
-            <button onClick={() => setShowBurgerMenu(!showBurgerMenu)}>
+            <Button
+              onClick={() => setShowBurgerMenu(!showBurgerMenu)}
+              pd={'5px 10px 8px'}
+            >
               <GiHamburgerMenu />
-            </button>
+            </Button>
             <div className="d-flex align-items-center">
               <p className="header_title">Eldiiar</p>
               <img src={myPhoto} alt="my_photo" />
